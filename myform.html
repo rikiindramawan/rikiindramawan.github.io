@@ -1,0 +1,85 @@
+<!DOCTYPE html> <!--struktur dalam membuat dokumen html-->
+<html> <!--struktur dalam membuat dokumen html-->
+<head> <!--struktur dalam membuat dokumen html-->
+    <meta charset="UTF-8"> <!--ini adalah metadata-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--fungsi agar tampilan web sesuai dengan ukuran monitor device-->
+    <title>Tugas 3 PWEB (Riki Indramawan)</title> <!--Judul web-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!--link bootstap, untuk import bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--link javascript, untuk import jquery-->
+    <script> // Tag permbuka untuk meletakkkan/menulis javascript/jquery
+        $(document).ready(function() { // sytax awal untuk membuat fungsi dengan jquery
+            $('.error').hide(); // Fungsi untuk menyembunyikan nilai yang mempunyai class dengan nama error
+            $('.submit').click(function(event){ // Fungsi jika element yang mempunyai class dengan nama submit diklik
+                var data=$('.infobox').val(); // variabel untuk mengambil nilai dari element yang mempunyai class dengan nama infobox
+                if(validate_userid(data)) // Fungsi kondisi, dengan memanggil fungsi validasi, dengan terdapat dua kondisi yaitu true dan false
+                {
+                    $('.error').hide(); // Fungsi yang dijalankan ketika kondisinya true, maka teks error tidak dimunculkan
+                }
+                else // Fungsi untuk kondisi false
+                {
+                    $('.error').show(); // Fungsi yang dijalankan ketika kondisinya false, maka teks error dimunculkan
+                    event.preventDefault(); //Mencegah input user untuk diproses jika input tidak valid
+                }
+            });
+        });
+        function validate_userid(uid) // fungsi untuk memvalidasi input user
+        {
+            var pattern= new RegExp(/^[a-z0-9_]+$/); // Fungsi untuk mengatur agar input adalah huruf (a-z)/angka (1-9)/underscore (_)
+            return pattern.test(uid); // Fungsi mengecek apakah input sudah sesuai/tidak dan mengembalikan nilai true/false
+        } 
+    </script> <!--Tag penutup untuk meletakkkan/menulis javascript/jquery-->
+    <style> /*Tag pembuka untuk meletakkan/menuliskan css*/
+        body {
+            background-image: url('image/bgBody.jpg'); /*fungsi menambahkan foto sebagai background body*/
+            font-family: 'Courier New', Courier, monospace; /*fungsi mengatur jenis font pada seluruh body*/
+        }
+        form {
+            margin-top: 250px; /*Fungsi mengatur margin bagian atas*/
+            margin-bottom: 250px; /*Fungsi mengatur margin bagian bawah*/
+            margin-left: 300px; /*Fungsi mengatur margin bagian kiri*/
+            margin-right: 300px; /*Fungsi mengatur margin bagian kanan*/
+            text-align: center; /*Fungsi menjadikan posisi teks berada ditengah*/
+        }
+        input.infobox {
+            width: 730px; /*Fungsi mengatur lebar kotak input*/
+            height: 50px; /*Fungsi mengatur tinggi kotak input*/
+            font-size: 30px; /*Fungsi mengatur ukuran teks pada kotak input*/
+        }
+        input.infobox:hover {
+            background-color: lightgrey; /*Fungsi mengatur warna background pada kotak input, ketika mouse diarakkan ke kotak input*/
+            border-color: rgb(11, 135, 236); /*Fungsi mengatur warna border pada kotak input, ketika mouse diarakkan ke kotak input*/
+        }
+        input.submit{
+            height: 50px; /*Fungsi mengatur tinggi tombol submit*/
+            font-size: 30px; /*Fungsi mengatur ukuran teks pada tombol submit*/
+            width: 150px; /*Fungsi mengatur lebar tombol submit*/
+        }
+        input.submit:hover{
+            background-color: yellow; /*Fungsi mengatur warna background pada tombol submit, ketika mouse diarahkan ke tombol submit*/
+            color: black; /*Fungsi mengatur warna teks pada tombol submit, ketika mouse diarahkan ke tombol submit*/
+        }
+        span.label {
+            font-size: 50px; /*Fungsi mengatur jenis font pada class label*/
+            color: white; /*Fungsi mengatur warna teks pada class label*/
+        }
+        span.error {
+            color: red; /*Fungsi mengatur warna teks pada class error*/
+            font-size: 30px; /*Fungsi mengatur jenis font pada class error*/
+        }
+    </style> <!--Tag penutup untuk menuliskan/meletakkan css-->
+</head> <!--struktur dalam membuat dokumen html-->
+<body> <!--struktur dalam membuat dokumen html-->
+    <form id="signup" method="post" action=""> <!--Tag pembuka untuk membuat form-->
+        <span class="label"><b>Masukkan ID anda : </b></span><br><br> <!--Membuat label-->
+        <div class="row"> <!--Tag pembuka,Membuat grid basic-->
+            <div class="col-sm-9"> <!--Tag pembuka untuk, kolom sebelah kiri dengan ukuran 9-->
+                <input type="text" class="infobox form-control" name="userid" placeholder="Huruf / Angka / Underscore"> <!--Fungsi membuat kotak input untuk menuliskan ID-->
+            </div> <!--Tag penutup untuk, kolom sebelah kiri dengan ukuran 9-->
+            <div class="col-sm-3"> <!--Tag pembuka untuk, kolom sebelah kiri dengan ukuran 3-->
+                <input class="submit btn btn-primary" type="submit" value="Submit"><br><br> <!--Fungsi untuk membuat tombol submit-->
+            </div> <!--Tag penutup untuk, kolom sebelah kiri dengan ukuran 3-->
+            <span class="error"> ID yang anda masukkan tidak valid</span> <!--Membuat teks error, jika input salah-->
+        </div> <!--Tag penutup, Membuat grid basic-->
+    </form> <!--Tag penutup untuk membuat form-->
+</body> <!--struktur dalam membuat dokumen html-->
+</html> <!--struktur dalam membuat dokumen html-->
