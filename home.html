@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+          $('.error').hide();
+          $('.submit').click(function(event){
+            var data=$('.infobox').val();
+            if(valid_email(data))
+            {
+              $('.error').hide();
+            }
+            else
+            {
+              $('.error').show();
+              event.preventDefault();
+            }
+          });
+        });
+        function valid_email(email)
+        {
+          var pattern= new RegExp(/^[\w-]+(\.[\w-]+)*@(gmail.)+[com]+$/);
+          return pattern.test(email);
+        } 
+    </script>
+    <style>
+        body {
+            background-color: white;
+        }
+        .navigasi {
+            margin: 20px;
+        }
+        div ul li a{
+          color: indianred;
+        }
+    </style>
+</head>
+<body>
+    <!--Navigasi-->
+    <div class="navigasi row">
+        <!--Logo kanan atas-->
+        <div class="col-sm-3" > 
+            <img src="image/fontgmail.jpg" alt="Gmail logo" style="width: 50%; height: 50px;">
+        </div>
+        <!--Div kosong-->
+        <div class="col-sm-5"></div>
+        <!--Tombol navigasi-->
+        <div class="col-sm-4" style="font-size: 18px;">
+            <div class="container">
+                <ul class="nav nav-pills" style="font-size: 16.5px;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>About us</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b> Contact us</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>Our product</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" style="background-color: indianred;"><b>Daftar</b></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Content-->
+    <div class="row">
+        <div class="col-sm-8">
+            <img src="image/g2.png" alt="Background Gmail" width="100%" height="115%">
+        </div>
+        <div class="col-sm-4"><br>
+            <h3 style="text-align: center;"><b>Sign In</b></h3><br>
+            <form id="signup" method="post" action="">
+                <div>
+                   <table style="width: 100%;">
+                      <tr>
+                          <td>
+                              <span class="label" style="font-size: 20px;"><b>Email : </b></span>
+                          </td>
+                          <td>
+                              <input type="text" class="infobox"name="email" placeholder="Enter E-mail ID" style="width: 83%; height: 40px;background-color: lightgrey;"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td ></td>
+                          <td>
+                             <span class="error" style="color: indianred;">Invalid Email Address</span>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label style="font-size: 20px;"><b>Password : </b></label>
+                          </td>
+                          <td>
+                              <input type="password" placeholder="Enter password" style="width: 83%; height: 40px; background-color:lightgrey;">
+                          </td>
+                      </tr>
+                    </table>       
+                </div><br>
+                <input class="submit btn" type="submit" value="Login" style="background-color: indianred; color: white; font-size: 18px;">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
