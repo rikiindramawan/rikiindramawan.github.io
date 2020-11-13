@@ -31,12 +31,19 @@
     <style>
         body {
             background-color: white;
+            position: absolute;
         }
         .navigasi {
             margin: 20px;
         }
         div ul li a{
           color: indianred;
+        }
+        a.nav-link:hover {
+            color: grey;
+        }
+        a.nav-link:active {
+            color: black;
         }
     </style>
 </head>
@@ -63,7 +70,7 @@
                         <a class="nav-link" href="#"><b>Our product</b></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" style="background-color: indianred;"><b>Daftar</b></a>
+                        <a class="nav-link active" href="#" style="background-color: indianred;"><b>Sign Up</b></a>
                     </li>
                 </ul>
             </div>
@@ -72,10 +79,10 @@
     <!--Content-->
     <div class="row">
         <div class="col-sm-8">
-            <img src="image/g2.png" alt="Background Gmail" width="100%" height="115%">
+            <img src="image/g2.png" alt="Background Gmail" width="100%" height="100%">
         </div>
         <div class="col-sm-4"><br>
-            <h3 style="text-align: center;"><b>Sign In</b></h3><br>
+            <h3 style="text-align: center;" class=""><b>Sign In</b></h3><br>
             <form id="signup" method="post" action="">
                 <div>
                    <table style="width: 100%;">
@@ -84,7 +91,7 @@
                               <span class="label" style="font-size: 20px;"><b>Email : </b></span>
                           </td>
                           <td>
-                              <input type="text" class="infobox"name="email" placeholder="Enter E-mail ID" style="width: 83%; height: 40px;background-color: lightgrey;"/>
+                              <input type="text" class="infobox form-control"name="email" placeholder="Enter E-mail ID" style="width: 83%; height: 40px;background-color: lightgrey;"/>
                           </td>
                       </tr>
                       <tr>
@@ -98,14 +105,21 @@
                               <label style="font-size: 20px;"><b>Password : </b></label>
                           </td>
                           <td>
-                              <input type="password" placeholder="Enter password" style="width: 83%; height: 40px; background-color:lightgrey;">
+                              <input type="password" class="form-control" placeholder="Enter password" style="width: 83%; height: 40px; background-color:lightgrey;" required>
                           </td>
                       </tr>
                     </table>       
                 </div><br>
                 <input class="submit btn" type="submit" value="Login" style="background-color: indianred; color: white; font-size: 18px;">
-            </form>
+            </form><br><br><br><br><br>
+            <div>
+                <img src="image/g3.png" alt="" width="88%">
+            </div>
         </div>
+    </div>
+    <div style="margin-left: 20px;">
+        <br>
+        <p>© 2020 Google Mail</p>
     </div>
 </body>
 </html>
